@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Sayang!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .birthday-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: float 2s ease-in-out infinite alternate;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff9a9e;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .music-player {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .music-player button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .music-player button:hover {
+            background-color: #ff4949;
+        }
+
+        .birthday-card h1 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .birthday-card h2 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .birthday-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+
+        .balloon {
+            position: absolute;
+            background-color: rgba(255,107,107,0.7);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            width: 50px;
+            height: 70px;
+            animation: float-balloon 3s infinite alternate;
+        }
+
+        .balloon:nth-child(1) { 
+            top: -30px; 
+            left: 20px; 
+            transform: rotate(-20deg); 
+        }
+        .balloon:nth-child(2) { 
+            top: -50px; 
+            right: 50px; 
+            transform: rotate(15deg); 
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-15px); }
+        }
+
+        @keyframes float-balloon {
+            from { transform: translateY(0) rotate(-20deg); }
+            to { transform: translateY(-30px) rotate(20deg); }
+        }
+
+        @media (max-width: 600px) {
+            .birthday-card {
+                padding: 20px;
+                width: 95%;
+            }
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    
+    <div class="birthday-card">
+        <!-- PENTING: Ganti 'foto.jpg' dengan nama file foto di folder yang sama -->
+        <img src="foto.jpeg" alt="Foto Pacar" class="profile-picture">
+        <h1>Selamat Ulang Tahun, Sayang!</h1>
+        <h2>Perjalanan Cinta Kita</h2>
+        <p>
+            <span class="heart">❤️</span> Kamu adalah segala sesuatu yang pernah aku impikan. 
+            Setiap hari bersamamu terasa seperti mimpi indah yang tak pernah ingin aku lepaskan.
+        </p>
+        <p>
+            Dalam dirimu, aku menemukan rumah. Dalam senyummu, aku menemukan kedamaian. 
+            Dan dalam cintamu, aku menemukan kebahagiaan sejati.
+        </p>
+        <p>
+            <span class="heart">❤️</span> Semoga tahun ini membawakan kebahagiaan 
+            sebesar cintaku padamu. Setiap detik, setiap nafas, selalu untukmu.
+        </p>
+        <p style="font-style: italic; margin-top: 20px;">
+            - Dengan Segenap Cinta -
+        </p>
+
+        <!-- Pemutar Musik -->
+        <div class="music-player">
+            <!-- PENTING: Ganti 'lagu.mp3' dengan nama file musik di folder yang sama -->
+            <audio id="background-music" src="lagu.mp3"></audio>
+            <button onclick="playPauseMusic()">Putar Musik</button>
+        </div>
+    </div>
+
+    <script>
+        function playPauseMusic() {
+            const music = document.getElementById('background-music');
+            const btn = event.target;
+
+            if (music.paused) {
+                music.play();
+                btn.textContent = 'Jeda';
+            } else {
+                music.pause();
+                btn.textContent = 'Putar Musik';
+            }
+        }
+    </script>
+</body>
+</html>
